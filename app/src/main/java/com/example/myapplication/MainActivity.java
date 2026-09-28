@@ -1,33 +1,46 @@
 package com.example.myapplication;
 
-import android.os.Bundle;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    TextView textView;
-    Button button;
-    Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = findViewById(R.id.textView);
-        button = findViewById(R.id.button);
-        button2 = findViewById(R.id.button2);
+        TextView textView = findViewById(R.id.textView);
+        Button btnChangeText = findViewById(R.id.button);
+        Button btnChangeTextColor = findViewById(R.id.button2);
+        Button btnChangeBgColor = findViewById(R.id.button3);
 
-        button.setOnClickListener(v -> {
-            textView.setText("Labuka");
+        // 1 mygtukas: pakeičia tekstą
+        btnChangeText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setText("Labukas");
+            }
         });
 
-        button2.setOnClickListener(v -> {
-            textView.setTextColor(Color.RED);
+        // 2 mygtukas: pakeičia teksto spalvą į raudoną
+        btnChangeTextColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setTextColor(Color.RED);
+            }
+        });
+
+        // 3 mygtukas: pakeičia fono spalvą į geltoną
+        btnChangeBgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setBackgroundColor(Color.YELLOW);
+            }
         });
     }
 }
